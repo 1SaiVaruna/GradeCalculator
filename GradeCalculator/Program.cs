@@ -32,6 +32,8 @@
 
         static void Main(string[] args)
         {
+            Console.WriteLine("COMPUPTER SCIENCE GRADE CALCAULTOR");
+            Console.WriteLine("\n- - - - - - - - - - -  - -\n");
             List<Module> modules = new List<Module>
             {
                 new Module("CET252", "AGILE DEVELOPMENT", 20, InputMarks("AGILE DEVELOPMENT")),
@@ -42,17 +44,19 @@
                 new Module("CET257", "ENTERPRISE PROJECT", 20, InputMarks("ENTERPRISE PROJECT"))
             };
 
+            Console.WriteLine("\n- - - - - - - - - - -  - -\n");
             double averageMarks = CalculateNormalAverage(modules);
-            Console.WriteLine($"\nAVERAGE (MARKS): {averageMarks:F2}%");
+            Console.WriteLine($"AVERAGE: {averageMarks:F2}%");
 
             double bestAverageMarks = CalculateBestAverage(modules);
-            Console.WriteLine($"\nBEST AVERAGE (MARKS): {bestAverageMarks:F2}%");
+            Console.WriteLine($"BEST AVERAGE: {bestAverageMarks:F2}%");
 
 
-            Console.WriteLine($"\nGRADE (AVERAGE): {Classify(averageMarks)}");
-            Console.WriteLine($"\nGRADE (BEST AVERAGE): {Classify(bestAverageMarks)}");
+            Console.WriteLine($"\nFINAL GRADE: {Classify(averageMarks)}");
+            Console.WriteLine($"(BEST) FINAL GRADE: {Classify(bestAverageMarks)}");
 
             Console.ReadKey();
+
         }
 
         static double InputMarks(string moduleName)
