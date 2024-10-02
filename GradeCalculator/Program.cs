@@ -34,8 +34,8 @@
         {
             List<Module> modules = new List<Module>();
             {
-                new Module("CET252", "Agile Development", 20, InputMarks("Agile Development" ),
-                new Module("CET253", "Database Systems", 20, InputMarks("Databases Systems"),
+                new Module("CET252", "Agile Development", 20, InputMarks("Agile Development")),
+                new Module("CET253", "Database Systems", 20, InputMarks("Databases Systems")),
                 new Module("CET254", "Advanced Programming", 20, InputMarks("Advanced Programming")),
                 new Module("CET255", "IoT and Robotics", 20, InputMarks("IoT and Robotics")),
                 new Module("CET256", "Cyber Security", 20, InputMarks("Cyber Security")),
@@ -46,7 +46,13 @@
             Console.WriteLine($"AVERAGE MARKS: {averageMarks:F2}%");
 
             double bestAverageMarks = CalculateBestAverage(modules);
-            Console.WriteLine($"BEST AVERAGE MARKS (EXCLUDES WORST MODULE): {bestAverageMarks:F2}%"); 
+            Console.WriteLine($"BEST AVERAGE MARKS (EXCLUDES WORST MODULE): {bestAverageMarks:F2}%");
+
+
+            Console.WriteLine($"\nGrade (Average): {Classify(averageMarks)}");
+            Console.WriteLine($"\nGrade (Best Average): {Classify(bestAverageMarks)}");
+
+            Console.ReadKey();
         }
 
         static double InputMarks(string moduleName)
