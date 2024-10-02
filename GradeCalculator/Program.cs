@@ -41,6 +41,12 @@
                 new Module("CET256", "Cyber Security", 20, InputMarks("Cyber Security")),
                 new Module("CET257", "Enterprise Project", 20, InputMarks("Enterprise Project"))
             };
+
+            double averageMarks = CalculateNormalAverage(modules);
+            Console.WriteLine($"AVERAGE MARKS: {averageMarks:F2}%");
+
+            double bestAverageMarks = CalculateBestAverage(modules);
+            Console.WriteLine($"BEST AVERAGE MARKS (EXCLUDES WORST MODULE): {bestAverageMarks:F2}%"); 
         }
 
         static double InputMarks(string moduleName)
