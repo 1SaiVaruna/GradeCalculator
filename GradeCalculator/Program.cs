@@ -34,23 +34,23 @@
         {
             List<Module> modules = new List<Module>
             {
-                new Module("CET252", "Agile Development", 20, InputMarks("Agile Development")),
-                new Module("CET253", "Database Systems", 20, InputMarks("Databases Systems")),
-                new Module("CET254", "Advanced Programming", 20, InputMarks("Advanced Programming")),
-                new Module("CET255", "IoT and Robotics", 20, InputMarks("IoT and Robotics")),
-                new Module("CET256", "Cyber Security", 20, InputMarks("Cyber Security")),
-                new Module("CET257", "Enterprise Project", 20, InputMarks("Enterprise Project"))
+                new Module("CET252", "AGILE DEVELOPMENT", 20, InputMarks("AGILE DEVELOPMENT")),
+                new Module("CET253", "DATABASE SYSTEMS", 20, InputMarks("DATABASE SYSTEMS")),
+                new Module("CET254", "ADVANCED PROGRAMMING", 20, InputMarks("ADVANCED PROGRAMMING")),
+                new Module("CET255", "IOT AND ROBOTICS", 20, InputMarks("IOT AND ROBOTICS")),
+                new Module("CET256", "CYBER SECURITY", 20, InputMarks("CYBER SECURITY")),
+                new Module("CET257", "ENTERPRISE PROJECT", 20, InputMarks("ENTERPRISE PROJECT"))
             };
 
             double averageMarks = CalculateNormalAverage(modules);
-            Console.WriteLine($"AVERAGE MARKS: {averageMarks:F2}%");
+            Console.WriteLine($"\nAVERAGE (MARKS): {averageMarks:F2}%");
 
             double bestAverageMarks = CalculateBestAverage(modules);
-            Console.WriteLine($"BEST AVERAGE MARKS (EXCLUDES WORST MODULE): {bestAverageMarks:F2}%");
+            Console.WriteLine($"\nBEST AVERAGE (MARKS): {bestAverageMarks:F2}%");
 
 
-            Console.WriteLine($"\nGrade (Average): {Classify(averageMarks)}");
-            Console.WriteLine($"\nGrade (Best Average): {Classify(bestAverageMarks)}");
+            Console.WriteLine($"\nGRADE (AVERAGE): {Classify(averageMarks)}");
+            Console.WriteLine($"\nGRADE (BEST AVERAGE): {Classify(bestAverageMarks)}");
 
             Console.ReadKey();
         }
@@ -59,15 +59,14 @@
         {
             double marks;
 
-            Console.Write($"ENTER MARKS FOR: {moduleName}: ");
+            Console.Write($"ENTER MARKS FOR {moduleName}: ");
 
             while (!double.TryParse(Console.ReadLine(), out marks) || marks < 0 || marks > 100)
             {
-                Console.Write("INVALID INPUT. TRY AGAIN. ENTER MARKS ( 0 - 100 ): ");
+                Console.Write("\nINVALID INPUT. TRY AGAIN. ENTER MARKS ( 0 - 100 ): ");
             }
-
+            Console.WriteLine("");
             return marks;
-
         }
 
         static double CalculateNormalAverage(List<Module> modules)
@@ -77,7 +76,7 @@
 
             foreach (var module in modules)
             {
-                totalMarks += module.Marks + module.Credits;
+                totalMarks += module.Marks * module.Credits;
                 totalCredits += module.Credits;
             }
 
