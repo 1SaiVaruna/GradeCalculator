@@ -39,11 +39,11 @@
                 new Module("CET254", "Advanced Programming", 20, InputMarks("Advanced Programming")),
                 new Module("CET255", "IoT and Robotics", 20, InputMarks("IoT and Robotics")),
                 new Module("CET256", "Cyber Security", 20, InputMarks("Cyber Security")),
-                new Module("CET257", "Enterprise Project", 20, InputMarks("Enterprise Project")),
+                new Module("CET257", "Enterprise Project", 20, InputMarks("Enterprise Project"))
             };
         }
 
-        static double InputMark(string moduleName)
+        static double InputMarks(string moduleName)
         {
             double marks;
 
@@ -54,6 +54,15 @@
                 Console.Write("INVALID INPUT. TRY AGAIN. ENTER MARKS ( 0 - 100 ): ");
             }
 
+        }
+
+        static GradingClassSystem Classify(double marks)
+        {
+            if (marks >= 70) return GradingClassSystem._1;
+            if (marks >= 60) return GradingClassSystem._21;
+            if (marks >= 50) return GradingClassSystem._22;
+            if (marks >= 40) return GradingClassSystem._3;
+            return GradingClassSystem._U;
         }
     }
 }
