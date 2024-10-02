@@ -83,6 +83,18 @@
 
         }
 
+        static double CalculateBestAverage(List<Module> modules)
+        {
+
+            Module worstModule = modules.OrderBy(m => m.Marks).First();
+
+            double totalMarks = Module.Where(m => m != worstModule).Sum(m => m.Marks * m.Credits);
+            int totalCredits = Module.Where(m => m != worstModule).Sum(modules => modules.Credits);
+
+            return totalMarks / totalCredits;
+
+        }
+
         static GradingClassSystem Classify(double marks)
         {
             if (marks >= 70) return GradingClassSystem._1;
